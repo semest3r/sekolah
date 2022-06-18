@@ -1,0 +1,4 @@
+python -m venv env (create env)
+django-admin startproject #namaproject (create project for new project)
+python manage.py runserver (running server)
+python manage.py startapp #namaapp (create new app)
