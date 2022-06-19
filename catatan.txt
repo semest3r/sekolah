@@ -16,3 +16,7 @@ DATABASES = {
     }
 }
 python manage.py inspectdb > models.py (get already database)
+python manage.py makemigrations namaapp (membuat migrasi database)
+python manage.py migrate namaapp (apply migrasi database)
+python manage.py migrate --fake namaapp zero (apply migrasi database versi 0)
+//untuk rollback ke versi on lakukan --fake namaapp zero lalu migrate seperti biasa

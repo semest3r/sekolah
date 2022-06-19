@@ -2,106 +2,96 @@
 entity aktifasi{
     *id : INT (PK)
     --
-    is_active : INT
+    kode_aktifasi : INT
     status : VARCHAR
 }
 entity role{
     *id : INT (PK)
     --
-    jabatan : INT
+    kode_role : INT
     status : VARCHAR
 }
 entity user{
     *id : INT (PK)
     --
-    *id_kategori : INT (FK)
-    nama_barang : VARCHAR
-    stock : INT
-    harga : INT
-    image
+    *id_role : INT (FK)
+    *id_aktifasi : INT (FK)
+    nama : VARCHAR
+    password : VARCHAR
 }
 entity siswa{
     *id : INT (PK)
     --
-    *id_transaksi : INT (FK)
-    *id_barang : INT (FK)
-    total_barang : INT
-    total_harga_barng : INT
-    date : DATE
+    *id_user : INT (FK)
+    *id_kelas : INT (FK)
+    *id_agama : INT (FK)
+    nis : INT
+    NISN : INT
+    Jenis Kelamin : INT
 }
+
 entity guru{
     *id : INT (PK)
     --
-    nama_kategori : VARCHAR
-    
+    id_user : INT (FK)
+    nip : INT
+}
+entity mapel{
+    *id : INT (PK)
+    --
+    id_kelas : INT (FK)
+    id_guru : INT (FK)
+    id_pelajaran : INT (FK)
 }
 entity kelas{
     *id : INT (PK)
     --
-    id_user : INT (FK)
-    deskripsi : TEXT
-    banyak_transaksi : INT
-    total_pemasukan : INT
-    date : DATE
+    nama_kelas : VARCHAR
 }
 entity jadwal{
     *id : INT (PK)
     --
-    name : VARCHAR
-    email : VARCHAR
-    notelp : VARCHAR
-    alamat : VARCHAR
-    date : DATE
+    id_kelas : INT (FK)
+    id_guru : INT (FK)
+    id_pelajaran : INT (FK)
+    id_hari : INT (FK)
 }
 entity jurusan{
     *id INT (PK)
     --
-    *id_pembeli : INT (FK)
-    *id_user : INT (FK)
-    total_harga : INT
-    status : INT
-    date : DATE
 }
 
 entity pelajaran{
     *id INT (PK)
     --
-    *id_pembeli : INT (FK)
-    *id_user : INT (FK)
-    total_harga : INT
-    status : INT
-    date : DATE
+    nama_pelajaran : VARCHAR
 }
 entity hari{
     *id : INT (PK)
     --
-    role_id : INT (FK)
-    id_aktifasi : INT (FK)
-    username : VARCHAR
-    password : VARCHAR
-    name : VARCHAR
-    nip : INT
-    date : DATE
+    hari : (VARCHAR)
 }
+
+entity tipenilai{
+    *id : INT (PK)
+    --
+    kode_tipenilai : INT
+    nama_nilai : VARCHAR
+}
+
 entity nilai{
     *id : INT (PK)
     --
-    role_id : INT (FK)
-    id_aktifasi : INT (FK)
-    username : VARCHAR
-    password : VARCHAR
-    name : VARCHAR
-    nip : INT
-    date : DATE
+    id_siswa : INT (FK)
+    id_guru : INT (FK)
+    id_pelajaran : INT (FK)
+    id_tipenilai : INT (FK)
+    total_nilai : INT
+
 }entity agama{
     *id : INT (PK)
     --
-    role_id : INT (FK)
-    id_aktifasi : INT (FK)
-    username : VARCHAR
-    password : VARCHAR
-    name : VARCHAR
-    nip : INT
-    date : DATE
+    kode_agama : INT
+    nama_agama : VARCHAR
 }
 @enduml
