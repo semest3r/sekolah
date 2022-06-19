@@ -2,3 +2,17 @@ python -m venv env (create env)
 django-admin startproject #namaproject (create project for new project)
 python manage.py runserver (running server)
 python manage.py startapp #namaapp (create new app)
+python -m pip install mysqlclient
+python -m pip install mysql-connector-python
+//setting database
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sekolah',
+        'USER' : 'root',
+        'PASSWORD' : '',
+        'HOST' : '',
+        'PORT' : ''
+    }
+}
+python manage.py inspectdb > models.py (get already database)

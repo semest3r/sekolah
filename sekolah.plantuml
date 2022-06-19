@@ -1,0 +1,107 @@
+@startuml sekolah
+entity aktifasi{
+    *id : INT (PK)
+    --
+    is_active : INT
+    status : VARCHAR
+}
+entity role{
+    *id : INT (PK)
+    --
+    jabatan : INT
+    status : VARCHAR
+}
+entity user{
+    *id : INT (PK)
+    --
+    *id_kategori : INT (FK)
+    nama_barang : VARCHAR
+    stock : INT
+    harga : INT
+    image
+}
+entity siswa{
+    *id : INT (PK)
+    --
+    *id_transaksi : INT (FK)
+    *id_barang : INT (FK)
+    total_barang : INT
+    total_harga_barng : INT
+    date : DATE
+}
+entity guru{
+    *id : INT (PK)
+    --
+    nama_kategori : VARCHAR
+    
+}
+entity kelas{
+    *id : INT (PK)
+    --
+    id_user : INT (FK)
+    deskripsi : TEXT
+    banyak_transaksi : INT
+    total_pemasukan : INT
+    date : DATE
+}
+entity jadwal{
+    *id : INT (PK)
+    --
+    name : VARCHAR
+    email : VARCHAR
+    notelp : VARCHAR
+    alamat : VARCHAR
+    date : DATE
+}
+entity jurusan{
+    *id INT (PK)
+    --
+    *id_pembeli : INT (FK)
+    *id_user : INT (FK)
+    total_harga : INT
+    status : INT
+    date : DATE
+}
+
+entity pelajaran{
+    *id INT (PK)
+    --
+    *id_pembeli : INT (FK)
+    *id_user : INT (FK)
+    total_harga : INT
+    status : INT
+    date : DATE
+}
+entity hari{
+    *id : INT (PK)
+    --
+    role_id : INT (FK)
+    id_aktifasi : INT (FK)
+    username : VARCHAR
+    password : VARCHAR
+    name : VARCHAR
+    nip : INT
+    date : DATE
+}
+entity nilai{
+    *id : INT (PK)
+    --
+    role_id : INT (FK)
+    id_aktifasi : INT (FK)
+    username : VARCHAR
+    password : VARCHAR
+    name : VARCHAR
+    nip : INT
+    date : DATE
+}entity agama{
+    *id : INT (PK)
+    --
+    role_id : INT (FK)
+    id_aktifasi : INT (FK)
+    username : VARCHAR
+    password : VARCHAR
+    name : VARCHAR
+    nip : INT
+    date : DATE
+}
+@enduml
