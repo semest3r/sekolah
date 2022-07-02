@@ -3,7 +3,6 @@ from .models import *
 # Register your models here.
 admin.site.register(Role)
 admin.site.register(Aktifasi)
-admin.site.register(User)
 admin.site.register(Siswa)
 admin.site.register(Guru)
 admin.site.register(Kelas)

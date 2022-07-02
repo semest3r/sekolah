@@ -1,22 +1,36 @@
-python -m venv env (create env)
-django-admin startproject #namaproject (create project for new project)
-python manage.py runserver (running server)
-python manage.py startapp #namaapp (create new app)
-python -m pip install mysqlclient
-python -m pip install mysql-connector-python
-//setting database
+#############################################
+MEMBUAT PROJECT DJANGO - SETTING DATABASE
+#############################################
+python -m venv env (create env) -> membuat environment
+python -m pip install django -> melakukan install django
+python -m pip install djangorestframework -> melakukan install djang rest framework untuk API
+python -m pip install mysqlclient -> tambahan untuk mysql
+python -m pip install mysql-connector-python -> tambahan untuk mysql
+django-admin startproject #namaproject -> membuat project baru django
+python manage.py startapp $namaapp -> membuat app pada project django
+setting>INSTALLED_APPS>'#namaapp' - melakukan registrasi pada settings
+setting>DATABASE:
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sekolah',
+        'ENGINE': 'django.db.backends.mysql', - engine untuk database mysql
+        'NAME': '#namadatabase',
         'USER' : 'root',
         'PASSWORD' : '',
         'HOST' : '',
         'PORT' : ''
     }
 }
-python manage.py inspectdb > models.py (get already database)
+python manage.py makemigrations - membuat commite migrasi awal
+python manage.py migrate - melakukan migrasi models ke database
+-------------------------------------------------------------
+
+#############################################
+Crash Course Models
+#############################################
+python manage.py inspectdb > models.py (database-table yang udah dibuat akan di konversi menjadi models.py)
 python manage.py makemigrations namaapp (membuat migrasi database)
-python manage.py migrate namaapp (apply migrasi database)
-python manage.py migrate --fake namaapp zero (apply migrasi database versi 0)
-//untuk rollback ke versi on lakukan --fake namaapp zero lalu migrate seperti biasa
+python manage.py migrate namaapp (migrasi models sesuai dengan nama app)
+python manage.py migrate --fake namaapp zero (membuat migrasi models palsu ke versi awal atau 0)
+**untuk rollback ke versi 0 lakukan --fake namaapp zero lalu migrate seperti biasa
+-------------------------------------------------------------
+
