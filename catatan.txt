@@ -33,5 +33,7 @@ python manage.py migrate namaapp (migrasi models sesuai dengan nama app)
 python manage.py migrate --fake namaapp zero (membuat migrasi models palsu ke versi awal atau 0)
 **untuk rollback ke versi 0 lakukan --fake namaapp zero lalu migrate seperti biasa
 -------------------------------------------------------------
-@method_decorator(login_required, name='dispatch') - harus login dahulu sebelum mengakses halaman website
-
+{% url '#namaurl' %} - #namaurl diambil dari path name='#namaurl'
+-------------------------------------------------------------
+@method_decorator(login_required(login_url=LOGIN_REDIRECT_URL), name='dispatch') - memberikan syarat login untuk akses website dengan menentukan url login di Setting
+-------------------------------------------------------------
