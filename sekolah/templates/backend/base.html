@@ -12,12 +12,14 @@
     <h1>Halaman Dashboard Sekolah</h1>
     {% for object in object_list %}
     <li>
-        {{object.id_user.username}}
-    </li>
-    <li>
-        {{object.nip}}
+        {{object.username}}
+        <a href="{% url 'detailView' object.id %}">Detail</a>
     </li>
     {% endfor %}
+    <div>
+        <a href="{% url 'createView' %}">Create User</a>
+        <a href="{% url 'welcome' %}">Home</a>
+    </div>
 </body>
 
 </html>

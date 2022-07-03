@@ -11,11 +11,11 @@
 <body>
     <h1>Detail User</h1>
     <li>
-        {{object.id_user.nama}}
+        {{object.username}}
     </li>
-    <li>
-        {{object.nip}}
-    </li>
+    <div>
+        <a href="{% url 'userView' %}">Back</a>
+    </div>
 </body>
 
 </html>

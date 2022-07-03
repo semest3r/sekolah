@@ -16,12 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
-
+from backend.views import loginView, logoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", TemplateView.as_view(template_name='backend/welcome.html')),
+    path("", TemplateView.as_view(template_name='backend/welcome.html'), name='welcome'),
     path('dashboard/', include('backend.urls')),
-    
+    path('accounts/', include('django.contrib.auth.urls')),
+    path("login/", loginView, name='loginView'),
+    path("logout/", logoutView, name="logoutView"),
     
 ]
