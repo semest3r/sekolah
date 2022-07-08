@@ -1,25 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
-</head>
-
-<body>
-    <h1>Halaman {{ page_title }}</h1>
-    <div>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" name="button">Submit</button>
-        </form>
-    </div>
-    <div>
-        <a href="{% url 'userView' %}">Back</a>
-    </div>
-</body>
-
-</html>
+{% extends "backend/base.html" %}
+{% block content %}
+<h1>Halaman Dashboard Sekolah</h1>
+{% for object in object_list %}
+<li>
+    {{object.username}}
+    <a href="{% url 'detailView' object.id %}">Detail</a>
+    <a href="{% url 'userUpdate' object.id %}">Update User</a>
+    <form method="POST" action="{% url 'deleteView' object.id %}">
+        {% csrf_token %}<input type="submit" value="DELETE">
+    </form>
+    <!-- <a href="{% url 'deleteView' object.id %}">Delete</a> -->
+</li>
+{% endfor %}
+<div>
+    <a href="{% url 'createView' %}">Create User</a>
+    <a href="{% url 'welcome' %}">Home</a>
+</div>
+{% endblock %}
